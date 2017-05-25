@@ -1,53 +1,30 @@
 package euler;
 
-import java.math.BigInteger;
-import java.util.ArrayList;
-import java.util.List;
-
 public class SummationOfPrimes {
 
-    private static List<Integer> primeNumbers = new ArrayList<>();
-
-    public static final int NO = 2000000;
-
     public static void main(String[] args) {
-        BigInteger bigInteger = new BigInteger("0");
-        long start = System.currentTimeMillis();
-        for (int i = 0; i < NO; i++) {
+        long sum = 0;
+        for (int i = 0; i < 2000000; i++) {
             if (isPrime(i)) {
-                primeNumbers.add(i);
-                bigInteger = bigInteger.add(BigInteger.valueOf(i));
+                sum += i;
             }
         }
-        long stop = System.currentTimeMillis();
-        System.out.println("Time: " + (stop - start));
-        System.out.println(bigInteger);
-
+        System.out.println(sum);
     }
 
     static boolean isPrime(int number) {
+        boolean prime = true;
+        double limit = Math.sqrt(number);
         if (number == 0 || number == 1) {
-            return false;
-        }
-        else if (number == 2 || number == 3 || number == 5) {
-            return true;
-        }
-        else if (number % 2 == 0) {
-            return false;
-        }
-        else if (number % 3 == 0) {
-            return false;
-        } else if (number % 5 == 0) {
-            return false;
+            prime = false;
         } else {
-            for (Integer i :
-                    primeNumbers) {
+            for (int i = 2; i <= limit; i++) {
                 if (number % i == 0) {
-                    return false;
+                    prime = false;
+                    break;
                 }
             }
         }
-        return true;
+        return prime;
     }
-
 }
