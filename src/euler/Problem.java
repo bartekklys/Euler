@@ -1,3 +1,5 @@
+package euler;
+
 /**
  * Created by bartek on 22.05.17.
  */

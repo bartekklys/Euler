@@ -1,9 +1,8 @@
+package euler;
+
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Created by B0664175 on 2017-05-22.
- */
 public class CircularPrimes implements Problem {
 
     static Set<Integer> circularPrimes = new HashSet<>();
