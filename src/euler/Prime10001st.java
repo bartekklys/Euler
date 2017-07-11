@@ -33,28 +33,19 @@ public class Prime10001st {
 
 
     public static boolean isPrime(int number) {
+        boolean prime = true;
+        double limit = Math.sqrt(number);
         if (number == 0 || number == 1) {
-            return false;
-        }
-        else if (number == 2 || number == 3 || number == 5) {
-        return true;
-        }
-        else if (number % 2 == 0) {
-            return false;
-        }
-        else if (number % 3 == 0) {
-            return false;
-        } else if (number % 5 == 0) {
-            return false;
+            prime = false;
         } else {
-            for (Integer i :
-                    primeNumbers) {
+            for (int i = 2; i <= limit; i++) {
                 if (number % i == 0) {
-                return false;
+                    prime = false;
+                    break;
                 }
             }
         }
-        return true;
+        return prime;
     }
 
 }
